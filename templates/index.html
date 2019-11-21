@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="~/favicon.ico">
+  </head>
+
+  <body>
+
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 jumbotron text-center">
+          <h1>Dow Jones Industrials Study</h1>
+          <p>Use the interactive chart below to explore the dataset</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="well">
+            <h5>Select Year</h5>
+            <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          </div>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"> Worst Performers </h3>
+            </div>
+            <div id="sample-metadata" class="panel-body"></div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div id="bar"></div>
+        </div>
+        <div class="col-md-12">
+          <div id="line"></div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Dow Jones Industrial Average</th>
+              <th>S & P 500</th>
+              <th>TBM Dollars</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2001</td>
+              <td>9287.04</td>
+              <td>8695.73</td>
+              <td>12164.29</td>
+            </tr>
+            <tr>
+              <td>2002</td>
+              <td>7730.12</td>
+              <td>6663.89</td>
+              <td>11240.88</td>
+            </tr>
+            <tr>
+              <td>2003</td>
+              <td>9686.69</td>
+              <td>8421.85</td>
+              <td>18906.64</td>
+            </tr>
+            <tr>
+              <td>2004</td>
+              <td>9992.76</td>
+              <td>9179.27</td>
+              <td>18489.81</td>
+            </tr>
+            <tr>
+              <td>2005</td>
+              <td>9931.37</td>
+              <td>9454.74</td>
+              <td>19120.15</td>
+            </tr>
+            <tr>
+              <td>2006</td>
+              <td>11548.11</td>
+              <td>10742.42</td>
+              <td>23204.66</td>
+            </tr>
+            <tr>
+              <td>2007</td>
+              <td>12294.49</td>
+              <td>11123.70</td>
+              <td>23417.28</td>
+            </tr>
+            <tr>
+              <td>2008</td>
+              <td>8136.23</td>
+              <td>6844.47</td>
+              <td>15529.11</td>
+            </tr>
+            <tr>
+              <td>2009</td>
+              <td>9671.98</td>
+              <td>8452.22</td>
+              <td>26505.17</td>
+            </tr>
+            <tr>
+              <td>2010</td>
+              <td>10735.38</td>
+              <td>9520.18</td>
+              <td>28313.34</td>
+            </tr>
+            <tr>
+              <td>2011</td>
+              <td>11328.95</td>
+              <td>9520.03</td>
+              <td>26659.00</td>
+            </tr>
+            <tr>
+              <td>2012</td>
+              <td>12147.44</td>
+              <td>10785.45</td>
+              <td>30995.98</td>
+            </tr>
+            <tr>
+              <td>2013</td>
+              <td>15366.25</td>
+              <td>13978.07</td>
+              <td>35067.54</td>
+            </tr>
+            <tr>
+              <td>2014</td>
+              <td>16526.13</td>
+              <td>15591.35</td>
+              <td>34109.96</td>
+            </tr>
+            <tr>
+              <td>2015</td>
+              <td>16157.05</td>
+              <td>15478.07</td>
+              <td>34720.41</td>
+            </tr>
+            <tr>
+              <td>2016</td>
+              <td>18345.10</td>
+              <td>17001.65</td>
+              <td>43161.60</td>
+            </tr>
+            <tr>
+              <td>2017</td>
+              <td>22818.89</td>
+              <td>20188.48</td>
+              <td>52007.00</td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>21455.90</td>
+              <td>18857.89</td>
+              <td>52152.66</td>
+            </tr>
+            <tr>
+              <td>2019</td>
+              <td>26058.38</td>
+              <td>23757.07</td>
+              <td>59104.56</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+
+    <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- <script src="{{ url_for('static', filename='js/bonus.js') }}"></script> -->
+    <script src="/static/js/app.js"></script>
+
+  </body>
+
+</html>
