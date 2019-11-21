@@ -92,6 +92,44 @@ function buildCharts(sample) {
   })
 }
 
+function buildLines() {
+
+  // Use `d3.json` to fetch the data for the plot
+  d3.json(`/combined_data`).then((data2) => {
+
+    // Build Multi-series Line Chart
+    var trace3 = {
+      x: data2.year,
+      y: data2.snp500_dollars,
+      mode: 'lines',
+      name: 'S&P 500 Index'
+    };
+
+    var trace4 = {
+      x: data2.year,
+      y: data2.dow_dollars,
+      mode: 'lines',
+      name: 'Dow Jones Industrials Index'
+    };
+
+    var trace5 = {
+      x: data2.year,
+      y: data2.tbm_dollars,
+      mode: 'lines',
+      name: 'TBM Portfolio'
+    };
+
+    var line_data = [trace3, trace4, trace5];
+
+    var layout3 = {
+      title: "Combined Financial Results"
+    };
+
+    Plotly.newPlot("line", line_data, layout3);
+
+  })
+}
+
 function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");

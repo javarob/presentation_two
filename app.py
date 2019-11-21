@@ -97,5 +97,25 @@ def samples(sample):
     return jsonify(data)
 
 
+@app.route("/combined_data")
+def combined_data():
+    """Return the combined data."""
+
+    # Use Pandas to perform the sql query
+    stmt2 = db.session.query(Combined).statement
+    df2 = pd.read_sql_query(stmt2, db.session.bind)
+
+    # Format the data to send as json
+    data2 = {
+        "year": df2.year.values.tolist(),
+        "dow_dollars": df2.dow_dollars.values.tolist(),
+        "snp500_dollars": df2.snp500_dollars.tolist(),
+        "tbm_dollars": df2.tbm_dollars.tolist(),
+    }
+
+    # Return the combined data
+    return jsonify(data2)
+
+
 if __name__ == "__main__":
     app.run()
